@@ -26,4 +26,59 @@ const api = {
             throw error;
         }
     },
+
+
+    async getAsignatureByCode(codigo) {
+        try {
+            const response = await fetch(`${API_URL}/asignatura?codigo=eq.${codigo}&select=*`, {
+                headers: this.headers
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch asignature by code');
+            }
+
+            const data = await response.json();
+            return data[0] || null; // Retornar el primer resultado o null si no hay datos
+        } catch (error) {
+            console.error(`Error fetching asignature by code ${codigo}:`, error);
+            throw error;
+        }
+    },
+
+    async updateAsignature(codigo, asignature) {
+        try {
+            const response = await fetch(`${API_URL}/asignatura?codigo=eq.${codigo}`, { // Cambiar "code" a "codigo"
+                method: 'PATCH',
+                headers: this.headers,
+                body: JSON.stringify(asignature)
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to update materia');
+            }
+
+            return await response.json();
+        } catch (error) {
+            console.error(`Error updating materia with codigo ${codigo}:`, error);
+            throw error;
+        }
+    },
+
+    async getStudentsByAsignature(codigoMateria) {
+        try {
+            const response = await fetch(`${API_URL}/estudiantes?codigo_materia=eq.${codigoMateria}&select=*`, {
+                headers: this.headers
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch students by asignature');
+            }
+
+            return await response.json();
+        } catch (error) {
+            console.error(`Error fetching students for asignature ${codigoMateria}:`, error);
+            throw error;
+        }
+    },
 };

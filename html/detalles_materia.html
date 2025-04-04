@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/detalles_materia.css" />
+    <title>Detalles de la Materia</title>
 </head>
 <body>
-    <h1>Hola2</h1>
+    <div class="container">
+        <div class="left-panel">
+            <h2 id="nombre-materia">Nombre de la Materia</h2>
+            <p id="codigo-materia"><strong>Código:</strong> </p>
+            <p id="descripcion-materia"><strong>Descripción:</strong> </p>
+        </div>
+        <div class="right-panel">
+            <div class="header">
+                <button id="add-student-button" class="button">Añadir Estudiante</button>
+            </div>
+            <div class="students-list" id="students-list">
+                <!-- Lista de estudiantes se cargará aquí -->
+            </div>
+        </div>
+    </div>
+    <script src="../js/api.js"></script>
+    <script src="../js/detalles.js"></script>
 </body>
 </html>
