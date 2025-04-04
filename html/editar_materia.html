@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/editar_matricula.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>Editar Materia</title>
+</head>
+<body>
+<header>
+    <button id="back-button" class="back-button">
+        <i class="ri-arrow-left-line"></i> Volver
+    </button>
+    <h1>Editar Materia</h1>
+</header>
+<main>
+    <form id="edit-materia-form" class="form">
+        <div class="form-group">
+            <label for="nombre">Nombre de la Materia</label>
+            <input type="text" id="nombre" name="nombre" required />
+        </div>
+        <div class="form-group">
+            <label for="codigo">Código</label>
+            <input type="text" id="codigo" name="codigo" required />
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+        </div>
+        <div class="form-buttons">
+            <button type="submit" class="button-inside">Guardar Cambios</button>
+            <button type="button" class="button-inside" id="cancel-button">Cancelar</button>
+        </div>
+    </form>
+</main>
+<script src="../js/editar_materia.js" type="module"></script>
+<script>
+    document.getElementById('back-button').addEventListener('click', () => {
+        window.location.href = 'sistema_matriculas.html';
+    });
+</script>
+</body>
+</html>

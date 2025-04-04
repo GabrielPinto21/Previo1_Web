@@ -12,6 +12,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             card.querySelector('.codigo_materia').textContent = `Código: ${asignatura.codigo}`;
             card.querySelector('.descripcion_materia').textContent = asignatura.descripcion;
 
+            const editButton = card.querySelector('#editar');
+            editButton.dataset.id = asignatura.id;
+            editButton.addEventListener('click', () => {
+                window.location.href = `editar_materia.html?id=${asignatura.id}`;
+            });
+
+            const detailsButton = card.querySelector('#detalles');
+            detailsButton.dataset.id = asignatura.id;
+            detailsButton.addEventListener('click', () => {
+                window.location.href = `detalles_materia.html?id=${asignatura.id}`;
+            });
+
             container.appendChild(clone);
         });
     } catch (error) {
