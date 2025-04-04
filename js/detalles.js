@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const asignatureCode = urlParams.get('codigo_materia'); // Cambiar a codigo_materia
+    const asignatureCode = urlParams.get('codigo_materia');
 
     async function loadAsignatureDetails() {
         try {
-            const asignature = await api.getAsignatureByCode(asignatureCode); // Usar codigo_materia
+            const asignature = await api.getAsignatureByCode(asignatureCode); 
             if (asignature) {
                 document.getElementById('nombre-materia').textContent = asignature.nombre;
                 document.getElementById('codigo-materia').innerHTML = `<strong>Código:</strong> ${asignature.codigo}`;
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         try {
             const students = await api.getStudentsByAsignature(asignatureCode);
             const studentsList = document.getElementById('students-list');
-            studentsList.innerHTML = ''; // Limpiar la lista
+            studentsList.innerHTML = '';
 
             if (students.length > 0) {
                 students.forEach(student => {

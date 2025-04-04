@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const asignatureCode = urlParams.get('codigo_materia'); // Obtener el código de la materia
+    const asignatureCode = urlParams.get('codigo_materia'); 
 
     async function loadAsignatureDetails() {
         try {
-            const asignature = await api.getAsignatureByCode(asignatureCode); // Llamar al método API
+            const asignature = await api.getAsignatureByCode(asignatureCode); 
             if (asignature) {
-                document.getElementById('nombre').value = asignature.nombre; // Usar las propiedades correctas
+                document.getElementById('nombre').value = asignature.nombre; 
                 document.getElementById('codigo').value = asignature.codigo;
                 document.getElementById('descripcion').value = asignature.descripcion;
             } else {
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadAsignatureDetails();
 
     document.getElementById("save").addEventListener('click', async (event) => {
-        event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+        event.preventDefault();
 
         const name = document.getElementById('nombre').value;
         const description = document.getElementById('descripcion').value;
@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
 
         try {
-            await api.updateAsignature(asignatureCode, asignature); // Llamar a la API para actualizar
+            await api.updateAsignature(asignatureCode, asignature);
             alert('Materia actualizada exitosamente');
-            window.location.href = 'sistema_matriculas.html'; // Redirigir al sistema de matrículas
+            window.location.href = 'sistema_matriculas.html';
         } catch (error) {
             console.error('Error al actualizar la materia:', error);
             alert('Falló la actualización de datos');

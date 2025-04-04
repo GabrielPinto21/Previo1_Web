@@ -1,8 +1,6 @@
-// API Configuration
 const API_URL = 'https://dvkvmjdefaytycdbsntd.supabase.co/rest/v1';
 const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2a3ZtamRlZmF5dHljZGJzbnRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM3MjE1MjAsImV4cCI6MjA1OTI5NzUyMH0.wYHbfTAJyIp2CLfU4LcIJfJAMrVq41zUK6kw5GZ01ts';
 
-// API Service
 const api = {
     headers: {
         'apikey': API_KEY,
@@ -27,7 +25,6 @@ const api = {
         }
     },
 
-
     async getAsignatureByCode(codigo) {
         try {
             const response = await fetch(`${API_URL}/asignatura?codigo=eq.${codigo}&select=*`, {
@@ -39,7 +36,7 @@ const api = {
             }
 
             const data = await response.json();
-            return data[0] || null; // Retornar el primer resultado o null si no hay datos
+            return data[0] || null;
         } catch (error) {
             console.error(`Error fetching asignature by code ${codigo}:`, error);
             throw error;
@@ -48,10 +45,10 @@ const api = {
 
     async updateAsignature(codigo, asignature) {
         try {
-            const response = await fetch(`${API_URL}/asignatura?codigo=eq.${codigo}`, { // Cambiar "code" a "codigo"
+            const response = await fetch(`${API_URL}/asignatura?codigo=eq.${codigo}`, {
                 method: 'PATCH',
                 headers: this.headers,
-                body: JSON.stringify(asignature)
+                body: JSON.stringify(asignature) 
             });
 
             if (!response.ok) {
