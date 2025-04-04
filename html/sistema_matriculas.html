@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/sistema_matricula.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>Asignaturas</title>
+</head>
+<body>
+<header>
+    <h1>Asignaturas</h1>
+    <button class="new-subject-button">Nueva Asignatura</button>
+</header>
+
+    <div class="container" id="container">
+        <template class="template_asignatura">
+        <div class="card">
+            <div>
+                <h2 class="nombre_materia">nombre de la materia</h2>
+                <p class="codigo_materia">Codigo</p>
+            </div>
+            <div class="descripcion_materia">descripcion</div>
+    
+            <div class="buttons">
+                <button class="button-inside" id="detalles-link" data-id="" title="editar estudiante">
+                    <i class="ri-edit-circle-line"></i>
+                </button>
+                <button class="button-inside" id="detalles-link" data-id="" title="ver detalles del estudiante">
+                    <i class="ri-info-card-line"></i>
+                </button>
+            </div>
+        </div>
+    </template>
+    </div>
+<script src="../js/api.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
